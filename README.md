@@ -8,7 +8,7 @@ A chatbot that answers software testing and QA questions. It is a retrieval chat
 
 ## Features
 
-- 30 testing topics (test cases, bug reports, severity vs priority, regression, automation and more)
+- 28 testing topics (test cases, bug reports, severity vs priority, regression, automation and more)
 - Confidence score and related-topic suggestions
 - Typing indicator and small talk
 - No API key and no external AI service: runs fully in the browser
