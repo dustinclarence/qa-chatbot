@@ -237,3 +237,6 @@ document.getElementById('topics').replaceChildren(
 );
 document.getElementById('kb-size').textContent = `Knowledge base: ${KB.length} testing topics, ${docs.length} example questions.`;
 greet();
+// Shareable link: ?q=your+question asks it straight away.
+const preset = new URLSearchParams(location.search).get('q');
+if (preset) ask(preset.slice(0, 300));
