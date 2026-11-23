@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TestPal · AI chatbot for software testing questions</title>
+    <meta name="description" content="TestPal is a browser-based NLP chatbot that answers software testing and QA questions using TF-IDF retrieval and cosine similarity." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="side" aria-labelledby="side-title">
+        <div class="logo">
+          <span class="logo__bot" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="24" rx="9"/><circle cx="18" cy="26" r="3.2"/><circle cx="30" cy="26" r="3.2"/><path d="M24 14V8"/><circle cx="24" cy="7" r="2.4"/><path d="M19 33h10"/></svg>
+          </span>
+          <div>
+            <h1 id="side-title">TestPal</h1>
+            <p>AI chatbot for software testing</p>
+          </div>
+        </div>
+        <h2 class="side__h">Try asking</h2>
+        <ul class="topics" id="topics"></ul>
+        <details class="how">
+          <summary>How does it work?</summary>
+          <p>TestPal is a retrieval chatbot. It does not call any online AI service.</p>
+          <ol>
+            <li>Your message is split into words and stemmed (testing → test).</li>
+            <li>Each word gets a <strong>TF-IDF</strong> weight: rare, meaningful words count more than common ones.</li>
+            <li>Your message is compared with every question in its knowledge base using <strong>cosine similarity</strong>.</li>
+            <li>If the best match is similar enough, it answers and shows its confidence. If not, it says it is not sure and suggests related topics.</li>
+          </ol>
+          <p id="kb-size"></p>
+        </details>
+        <p class="side__note">AI-assisted build for the portfolio of Dustin Clarence Costo.</p>
+      </aside>
+
+      <main class="chat" aria-labelledby="chat-title">
+        <header class="chat__head">
+          <h2 id="chat-title">Chat</h2>
+          <button type="button" class="ghost" id="clear">New chat</button>
+        </header>
+        <ol class="log" id="log" aria-live="polite" aria-label="Conversation"></ol>
+        <form class="composer" id="composer" autocomplete="off">
+          <label for="msg" class="visually-hidden">Message</label>
+          <input id="msg" placeholder="Ask about regression testing, bug reports, test cases…" maxlength="300" />
+          <button type="submit" class="send" aria-label="Send message">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l16-8-6 16-2.5-6.5z"/></svg>
+          </button>
+        </form>
+      </main>
+    </div>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
