@@ -122,10 +122,10 @@ function respond(text) {
   const best = ranked[0];
   if (!best || best.s < 0.28) {
     const ideas = ranked.filter((r) => !r.d.small && r.s > 0.05).slice(0, 3).map((r) => r.d.entry);
-    return { text: "I'm not sure I understood that. I only know about software testing topics." + (ideas.length ? ' Did you mean one of these?' : ' Try one of the topics on the left.'), related: ideas, confidence: best ? best.s : 0 };
+    return { text: "I'm not sure I understood that. I only know about software testing topics." + (ideas.length ? ' Did you mean one of these?' : ' Try one of the topics on the left.'), related: ideas, score: best ? best.s : 0 };
   }
   const e = best.d.entry;
-  return { text: e.a, topic: e.topic, confidence: best.s, related: (e.rel || []).map((id) => KB.find((k) => k.id === id)).filter(Boolean) };
+  return { text: e.a, topic: e.topic, score: best.s, related: (e.rel || []).map((id) => KB.find((k) => k.id === id)).filter(Boolean) };
 }
 
 /* ---------------- UI ---------------- */
@@ -195,7 +195,7 @@ function ask(text) {
     if (res.topic) {
       const meta = document.createElement('div');
       meta.className = 'meta';
-      const pct = Math.round(Math.min(1, res.confidence) * 100);
+      const pct = Math.round(Math.min(1, res.score) * 100);
       meta.innerHTML = `<span class="tag">Topic: ${res.topic}</span><span class="conf">Match ${pct}% <span class="conf__bar" aria-hidden="true"><span style="width:${pct}%"></span></span></span>`;
       extra.append(meta);
     }

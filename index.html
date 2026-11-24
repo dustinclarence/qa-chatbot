@@ -32,7 +32,7 @@
             <li>Your message is split into words and stemmed (testing → test).</li>
             <li>Each word gets a <strong>TF-IDF</strong> weight: rare, meaningful words count more than common ones.</li>
             <li>Your message is compared with every question in its knowledge base using <strong>cosine similarity</strong>.</li>
-            <li>If the best match is similar enough, it answers and shows its confidence. If not, it says it is not sure and suggests related topics.</li>
+            <li>If the best match is similar enough, it answers and shows a match score (how similar your question is to its stored question). If not, it says it is not sure and suggests related topics.</li>
           </ol>
           <p id="kb-size"></p>
         </details>
