@@ -4,8 +4,6 @@ A chatbot that answers software testing and QA questions. It is a retrieval chat
 
 **Live demo:** https://dustinclarence.github.io/qa-chatbot/
 
-> **AI-assisted build.** This project was built with the help of an AI coding assistant (Claude) as a learning project for my portfolio.
-
 ## Features
 
 - 28 testing topics (test cases, bug reports, severity vs priority, regression, automation and more)
@@ -19,7 +17,7 @@ TF-IDF, cosine similarity, synonyms and stemming, confidence threshold
 
 ## Built with
 
-HTML, CSS and vanilla JavaScript. No frameworks, no build step and no external AI service. Everything runs in the browser.
+HTML, CSS and vanilla JavaScript. No frameworks, no build step and no external AI service. Everything runs in the browser. Built with the help of AI coding tools.
 
 ## Run locally
 
